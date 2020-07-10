@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
-const NavBar = () => {
+const NavBar = ({ setIsMenuOpen }) => {
   return (
     <header className="header">
       <div className="brand">
-      <button className="brand button"><i class="fas fa-bars fa-1x"></i></button>
+        <button onClick={() => setIsMenuOpen(true)}>
+          <i className="fas fa-bars fa-1x"></i>
+        </button>
         <Link to="/">Fauxmazon</Link>
       </div>
       <div className="header-links">

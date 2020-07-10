@@ -75,18 +75,18 @@ Header /Navbar
     color: var(--primary)
 }
 
-.brand .button {
+.brand button {
     background: none;
     border: none;
     color: white;
     cursor: pointer;
     font-size: 1.9rem;
     padding: 0.5rem;
-
+    outline: none;
 }
 
 .brand .button:hover {
-    color: var(--primary);
+    color: var(--primary) !important;
 }
 
 
@@ -168,3 +168,41 @@ Content
     margin: 1rem;
 }
 
+/*==================
+Sidebar
+====================*/
+
+.sidebar {
+    background-color: lightgray;
+    height: 100%;
+    position: fixed;
+    /* transform: translateX(-30rem); */
+    /* transform: translateX(0); */
+    top: 80px;
+    width: 30%;
+}
+
+
+.sidebar .open{
+    /* transform: translateX(-30rem); */
+}
+
+.sidebar-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.sidebar-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin: 0 .5rem;
+}
+
+.sidebar-header button:hover {
+    color: var(--dark);
+    cursor: pointer;
+
+}
