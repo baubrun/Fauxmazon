@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 const Categories = ({ isMenuOpen, setIsMenuOpen }) => {
   return (
     <>
-      {isMenuOpen && (
-        <aside className="sidebar">
+        <aside className={`sidebar ${isMenuOpen ? "open" : ""}`}>
           <div className="sidebar-header">
             <h3>Categories</h3>
             <button onClick={() => setIsMenuOpen(false)}>
-              <i class="far fa-window-close"></i>
+              <i className="far fa-window-close"></i>
             </button>
           </div>
 
@@ -22,7 +21,6 @@ const Categories = ({ isMenuOpen, setIsMenuOpen }) => {
             </li>
           </ul>
         </aside>
-      )}
     </>
   );
 };

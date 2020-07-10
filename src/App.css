@@ -29,6 +29,10 @@ li {
     list-style-type: none;
 }
 
+
+#root {
+    /* height: 100%; */
+}
 /*==================
 Grid container
 ====================*/
@@ -172,20 +176,21 @@ Content
 Sidebar
 ====================*/
 
+
 .sidebar {
     background-color: lightgray;
     height: 100%;
     position: fixed;
-    /* transform: translateX(-30rem); */
-    /* transform: translateX(0); */
+    transform: translateX(-30rem);
     top: 80px;
+    transition: all 0.4s ease-in-out;
     width: 30%;
 }
 
-
-.sidebar .open{
-    /* transform: translateX(-30rem); */
+.sidebar.open{
+    transform: translateX(0);
 }
+
 
 .sidebar-header {
     align-items: center;
@@ -199,6 +204,7 @@ Sidebar
     border: none;
     font-size: 1.5rem;
     margin: 0 .5rem;
+    outline: none;
 }
 
 .sidebar-header button:hover {
