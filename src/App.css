@@ -1,38 +1,170 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --dark: #0D0A33;
+    --primary: #FAA300;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+    /* margin: 0; */
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+a {
+    text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a:hover {
+    color: var(--primary)
 }
 
-.App-link {
-  color: #61dafb;
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+li {
+    list-style-type: none;
 }
+
+/*==================
+Grid container
+====================*/
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem 1fr 5rem;
+    height: 100vh;
+}
+
+
+
+/*==================
+Header /Navbar
+====================*/
+
+
+.header {
+    align-items: center;
+    background-color: var(--dark);
+    display: flex;
+    color: white;
+    grid-area: header;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.brand {
+    font-size: 1.9rem;
+    letter-spacing: 0.2rem;
+}
+
+.header a {
+    color: white;
+    font-weight: bold;
+}
+
+.header a:hover {
+    color: var(--primary)
+}
+
+.brand .button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.9rem;
+    padding: 0.5rem;
+
+}
+
+.brand .button:hover {
+    color: var(--primary);
+}
+
+
+/*==================
+Main
+====================*/
+
+
+.main {
+    grid-area: main;
+}
+
+
+/*==================
+Footer
+====================*/
+
+
+.footer {
+    align-items: center;
+    background-color: var(--dark);
+    color: white;
+    display: flex;
+    grid-area: footer;
+    justify-content: center;
+
+}
+
+
+/*==================
+Content
+====================*/
+
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-brand {
+    color: #636363;
+    font-size: .9rem;
+}
+
+.product-image {
+    object-fit: cover;
+    min-height: 20rem;
+    max-width: 20rem;
+}
+
+.product-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.product-rating {
+    margin-bottom: 1rem;
+}
+
+
+/*products*/
+
+.products {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.products li {
+    border-bottom: .1rem lightgray solid;
+    flex: 0 1 34rem;
+    height: 50rem;
+    margin: 1rem;
+}
+
