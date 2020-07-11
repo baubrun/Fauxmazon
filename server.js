@@ -1,15 +1,20 @@
 const express = require("express")
-const app = express()
 const cors = require("cors")
+const data = require("./data")
+
+const app = express()
+
+
 app.use(express.json())
 app.use(cors())
 
 
 
-
-app.get("/", (req, res, next) => {
-    res.sendFile(__dirname + "/template.html")
+app.get("/api/products", (req, res) => {
+    res.send(data.products)
 })
+
+
 
 
 

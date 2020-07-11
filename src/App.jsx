@@ -25,7 +25,7 @@ const App = () => {
         <main className="main">
           <div className="content">
             <Route path="/products/" exact={true} component={Products} />
-            <Route path="/product/:id" exact={true} component={ProductView} />
+            {/* <Route path="/product/:id" exact={true} component={ProductView} /> */}
             <Route path="/" exact={true} component={HomeView} />
             {/* <Route component={NotFound} /> */}
 

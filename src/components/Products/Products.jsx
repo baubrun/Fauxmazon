@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { data } from "../../data";
+// import { data } from "../../../data";
 
-const Products = () => {
+
+const Products = ({products}) => {
   return (
     <ul className="products">
-      {data.products.map((p, idx) => {
+      {products.map((p, idx) => {
         return (
           <li className="product" key={idx}>
             <Link to={`/product/${p._id}`}>

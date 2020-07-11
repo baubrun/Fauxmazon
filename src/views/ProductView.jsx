@@ -1,10 +1,23 @@
-import React from "react";
-import { data } from "../data";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const Products = (props) => {
+
+const ProductView = (props) => {
+  const [products, setProducts] = useState([]);
+
+  const fetchProducts = async () => {
+    const { data } = await axios.get("/api/products");
+    setProducts(data);
+  };
+  
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+
   const id = props.match.params.id;
-  const product = data.products.find((d) => d._id === id);
+  const product = products.find((d) => d._id === id);
   return (
     <>
       <div style={{padding: "1rem"}}>
@@ -48,4 +61,4 @@ const Products = (props) => {
   );
 };
 
-export default Products;
+export default ProductView;
