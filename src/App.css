@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 :root {
-    --dark: #0D0A33;
-    --primary: #FAA300;
+    --dark: #474647;
+    --primary: #2D7DD2;
 }
 
 * {
@@ -16,7 +16,7 @@ a {
 }
 
 a:hover {
-    color: var(--primary)
+    color: var(--dark)
 }
 
 body {
@@ -30,9 +30,7 @@ li {
 }
 
 
-#root {
-    /* height: 100%; */
-}
+
 /*==================
 Grid container
 ====================*/
@@ -57,7 +55,7 @@ Header /Navbar
 
 .header {
     align-items: center;
-    background-color: var(--dark);
+    background-color: var(--primary);
     display: flex;
     color: white;
     grid-area: header;
@@ -76,7 +74,7 @@ Header /Navbar
 }
 
 .header a:hover {
-    color: var(--primary)
+    color: var(--dark)
 }
 
 .brand button {
@@ -111,7 +109,7 @@ Footer
 
 .footer {
     align-items: center;
-    background-color: var(--dark);
+    background-color: var(--primary);
     color: white;
     display: flex;
     grid-area: footer;
@@ -123,6 +121,70 @@ Footer
 /*==================
 Content
 ====================*/
+
+
+/* product-details */
+
+.button {
+    background-color: white;
+    border: .1rem var(--primary) solid;
+    border-radius: 0.3rem;
+    color: var(--primary);
+    cursor: pointer;
+    font-weight: bold;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    background-color: var(--primary);
+    border: .1rem var(--primary) solid;
+    color: white;
+}
+
+.details {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.details-action {
+    background-color: white;
+    border: .1rem solid var(--primary);
+    flex: 1 1 30rem;
+    padding: 1rem;
+}
+
+
+.details-action ul li:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.details-img {
+    flex: 2 1 10rem;
+}
+
+.details-img img {
+    object-fit: cover;
+    min-height: 20rem;
+    max-width: 20rem;
+}
+
+.details-info {
+    flex: 1 1 30rem;
+}
+
+.details-info li,
+.details-action li {
+    margin-bottom: 1rem;
+    /* padding: 1rem; */
+}
+
+/* product-details  end*/
+
 
 .product {
     display: flex;
@@ -166,7 +228,7 @@ Content
 }
 
 .products li {
-    border-bottom: .1rem lightgray solid;
+    border-bottom: .1rem var(--primary) solid;
     flex: 0 1 34rem;
     height: 50rem;
     margin: 1rem;
