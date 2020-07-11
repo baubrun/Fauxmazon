@@ -101,26 +101,63 @@ Main
     grid-area: main;
 }
 
-
-/*==================
-Footer
-====================*/
-
-
-.footer {
-    align-items: center;
-    background-color: var(--primary);
-    color: white;
-    display: flex;
-    grid-area: footer;
-    justify-content: center;
-
-}
-
-
 /*==================
 Content
 ====================*/
+
+/* cart*/
+
+.cart {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+
+.cart-list {
+   flex: 3 1 60rem; 
+}
+
+.cart-action {
+    border: .1rem solid var(--primary);
+    flex: 1 1 20rem;
+    margin: 0 1rem;
+    padding: 1rem;
+}
+
+.cart-img {
+    flex: 1 1;
+}
+
+.cart-name {
+    flex: 8 1;
+} 
+
+.cart-price {
+    flex: 1 1;
+    font-size: 2.5rem;
+    text-align: right;
+  }
+
+.cart-list-container li {
+    align-items: center;
+    border-bottom: .1rem solid var(--primary);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.cart-list-container img {
+    min-width: 10rem;
+    max-width: 10rem;
+}
+
+.cart-list-container li:first-child{
+    align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+}
 
 
 /* product-details */
@@ -168,7 +205,7 @@ Content
     flex: 2 1 10rem;
 }
 
-.details-img img {
+.details-img img{
     object-fit: cover;
     min-height: 20rem;
     max-width: 20rem;
@@ -230,9 +267,9 @@ Content
 
 .products li {
     border-bottom: .1rem var(--primary) solid;
-    flex: 0 1 34rem;
+    flex: 0 1 10rem;
     height: 50rem;
-    margin: 1rem;
+    margin: 5rem;
 }
 
 /*==================
@@ -274,4 +311,34 @@ Sidebar
     color: var(--dark);
     cursor: pointer;
 
+}
+/*==================
+Footer
+====================*/
+
+
+.footer {
+    align-items: center;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    grid-area: footer;
+    justify-content: center;
+
+}
+
+
+
+
+/*==============
+Not Found
+===============*/
+
+.notFound {
+    align-items: center;
+    color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    font-size: 5rem;
+    justify-content: center;
 }

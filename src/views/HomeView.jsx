@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from "react";
 import Products from "../components/Products/Products";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { getProductsAction } from "../actions/productActions";
 
 const HomeView = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const productsArray = useSelector((state) => state.products);
+  const { error, loading, products } = productsArray;
 
-  const fetchProducts = async () => {
-    const { data } = await axios.get("/api/products");
-    setProducts(data);
-  };
-  
   useEffect(() => {
-    fetchProducts();
+    dispatch(getProductsAction());
   }, []);
 
   return (
-    <div>
-      <Products products={products} />
-    </div>
+    <>
+      <Products 
+      loading={loading} 
+      error={error} 
+      products={products} />
+    </>
   );
 };
 

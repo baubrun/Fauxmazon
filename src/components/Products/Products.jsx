@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { data } from "../../../data";
 
 
-const Products = ({products}) => {
-  return (
+const Products = ({products, loading, error,}) => {
+  return loading ? (
+    <div>...loading</div>
+  ) : error ? (
+    <div>{error}</div>
+  ) : (
     <ul className="products">
       {products.map((p, idx) => {
         return (
           <li className="product" key={idx}>
-            <Link to={`/product/${p._id}`}>
+            <Link to={`/products/${p._id}`}>
               <img
                 className="product-image"
                 src={require(`../../images/${p.image}`)}
@@ -17,7 +20,7 @@ const Products = ({products}) => {
               />
             </Link>
             <div className="product-name">
-              <Link to={`/product/${p._id}`}>{p.name}</Link>
+              <Link to={`/products/${p._id}`}>{p.name}</Link>
             </div>
             <div className="product-brand">{p.brand}</div>
             <div className="product-price">${p.price}</div>
