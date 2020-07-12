@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom";
 
 const NavBar = ({ setIsMenuOpen }) => {
+  const userSignIn = useSelector((state) => state.userSignIn);
+  const {userInfo} = userSignIn
   return (
     <>
       <div className="brand">
@@ -10,10 +13,18 @@ const NavBar = ({ setIsMenuOpen }) => {
         </button>
         <Link to="/">Fauxmazon</Link>
       </div>
-      <div className="header-links">
-        <Link to="/cart">Cart </Link>
-        <Link to="/signin">Sign In</Link>
-      </div>
+      <ul className="header-links">
+        <li>
+          <Link to="/cart">Cart </Link>
+        </li>
+        <li>
+          {userInfo ? (
+            <Link to="/profile">{userInfo.name}</Link>
+          ) : (
+            <Link to="/signin">Sign In</Link>
+          )}
+        </li>
+      </ul>
     </>
   );
 };

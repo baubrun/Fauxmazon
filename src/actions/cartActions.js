@@ -12,7 +12,6 @@ import Cookie from "js-cookie"
 
 const addToCartAction = (prodID, qty) => {
     return (dispatch, getState) => {
-        // return dispatch => {
         axios.get(url + prodID).then(res => {
             const {
                 data

@@ -63,6 +63,17 @@ Header /Navbar
     padding: 0.5rem;
 }
 
+.header-links {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 2rem;
+}
+
+.header-links li {
+    padding: 0 2rem;
+}
+
+
 .brand {
     font-size: 1.9rem;
     letter-spacing: 0.2rem;
@@ -341,4 +352,43 @@ Not Found
     flex-direction: column;
     font-size: 5rem;
     justify-content: center;
+}
+
+
+/*==============
+Form
+===============*/
+
+.signIn-header {
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.form {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+
+.form-container {
+    border: .1rem solid var(--primary);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem ;
+}
+
+.form-container li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form input {
+    border: .1rem solid var(--primary);
+    border-radius: .5rem;
+    padding:  1rem;
 }

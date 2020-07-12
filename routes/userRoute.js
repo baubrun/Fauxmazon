@@ -1,15 +1,15 @@
 const express = require("express")
 const router = express.Router()
 const User = require("../models/userModels")
-
+const getToken = require("../utils/index")
 
 
 router.get("/createadmin", (req, res) => {
 
     const user = new User({
         name: 'bb',
-        email: 'bb@gmail.com',
-        password: '1234',
+        email: 'bb@bb.com',
+        password: 'bb',
         isAdmin: true
     })
 
@@ -17,28 +17,29 @@ router.get("/createadmin", (req, res) => {
         res.send(user)
     }).catch(err => {
         res.send({
-            msg: err.message
+            message: err.message
         })
     })
 })
 
 
-router.post("/signin", (req, res) => {
-    const {email, password} = req.body
-    const signInUser = new User.findOne({
-        email,
-        password,
+router.post("/signin", async (req, res) => {
+    const signInUser = await User.findOne({
+        email: req.body.email,
+        password: req.body.password,
     })
-    if (signInUser){
+    if (signInUser) {
         res.send({
             email: signInUser.email,
             _id: signInUser.id,
             isAdmin: signInUser.isAdmin,
             name: signInUser.name,
-            token: getToken(user)
+            token: getToken(signInUser)
         })
     } else {
-        res.status(401).send({msg: "Invalid email or password."})
+        res.status(401).send({
+            message: "Invalid email or password."
+        })
     }
 
 })

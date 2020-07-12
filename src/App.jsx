@@ -14,6 +14,7 @@ import SignInView from "./views/SignInView";
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+
   return (
     <BrowserRouter>
       <div className="grid-container">

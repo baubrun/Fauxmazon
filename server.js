@@ -19,8 +19,11 @@ app.use(express.json())
 app.use(cors())
 app.use("/api/users", userRoute)
 
-mongoose.connect(process.env.MONGODB_URL, options).catch(err => {
-    console.log(err.reason)
+mongoose.connect(process.env.MONGODB_URL, options)
+const db = mongoose.connection
+db.on("error", err => console.error(err))
+db.once("open", () => {
+    console.log("\nMongoose connected to DB.\n")
 })
 
 
@@ -35,7 +38,7 @@ app.get("/api/products/:id", (req, res) => {
         res.send(found)
     }
     else {
-        res.status(404).send({msg: "Product not found."})
+        res.status(404).send({message: "Product not found."})
     }
 })
 
