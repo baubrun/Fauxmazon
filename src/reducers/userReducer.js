@@ -2,9 +2,12 @@ import {
   SIGN_IN_REQUEST,
   SIGN_IN_SUCCESS,
   SIGN_IN_FAIL,
+  REGISTER_FAIL,
+  REGISTER_REQUEST,
+  REGISTER_SUCCESS
 } from "../actions/types";
 
-const userReducer = (state = {}, action) => {
+export const signInReducer = (state = {}, action) => {
   switch (action.type) {
     case SIGN_IN_REQUEST:
       return { loading: true };
@@ -19,5 +22,23 @@ const userReducer = (state = {}, action) => {
     default:
       return state;
   }
+
 };
-export default userReducer;
+
+
+export const registerReducer = (state = {}, action) => {
+  switch (action.type) {
+    case REGISTER_REQUEST:
+      return { loading: true };
+    case REGISTER_SUCCESS:
+      return { 
+        loading: false, 
+        userInfo: action.payload };
+    case REGISTER_FAIL:
+      return { 
+        loading: false, 
+        error: action.payload };
+    default:
+      return state;
+  }
+};

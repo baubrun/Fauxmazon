@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {signInAction} from "../actions/userActions"
+import {registerAction} from "../actions/userActions"
 
-const SignInView = (props) => {
+const RegisterView = (props) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const userSignIn = useSelector((state) => state.userSignIn);
-  const {error, loading, userInfo} = userSignIn;
+  const userRegister = useSelector((state) => state.userRegister);
+  const {error, loading, userInfo} = userRegister;
   const { search } = props.location;
   const redirect = search ? search.split("=")[1] : "/";
 
@@ -20,7 +21,7 @@ const SignInView = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch(signInAction(email, password))
+    dispatch(registerAction(name, email, password))
   };
 
   return (
@@ -29,7 +30,7 @@ const SignInView = (props) => {
         <form onSubmit={handleSubmit}>
           <ul className="form-container">
             <li>
-              <h2 className="signIn-header">Sign In</h2>
+              <h2 className="signIn-header">Register</h2>
             </li>
             <li>
               {loading && <div>Loading...</div>}
@@ -45,6 +46,15 @@ const SignInView = (props) => {
               />
             </li>
             <li>
+              <label htmlFor="name">Name</label>
+              <input
+                type="name"
+                name="name"
+                id="name"
+                onChange={(evt) => setName(evt.target.value)}
+              />
+            </li>
+            <li>
               <label htmlFor="password">Password</label>
               <input
                 type="password"
@@ -54,28 +64,25 @@ const SignInView = (props) => {
               ></input>
             </li>
             <li>
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <input
+                type="confirmPassword"
+                id="confirmPassword"
+                name="confirmPassword"
+                onChange={(evt) => setPassword(evt.target.value)}
+              ></input>
+            </li>
+            <li>
               <button type="submit" className="button">
-                Sign in
+                register
               </button>
             </li>
-            <li>New to Fauxmazon?</li>
-            <li>
-              <Link
-                className="button signIn"
-                to={
-                  redirect === "/"
-                    ? "register"
-                    : "register?redirect=" + redirect
-                }
-              >
-                Create a an account
-              </Link>
-            </li>
+            <li>Already have an account ... <Link to="/signin">Sign In</Link></li>
           </ul>
-        </form>{" "}
+        </form>
       </div>
     </>
   );
 };
 
-export default SignInView;
+export default RegisterView;

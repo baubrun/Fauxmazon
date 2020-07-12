@@ -10,6 +10,7 @@ import ProductDetailView from "./views/ProductDetailView";
 import NotFound from "./views/NotFound";
 import CartView from "./views/CartView";
 import SignInView from "./views/SignInView";
+import RegisterView from "./views/RegisterView";
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,6 +26,7 @@ const App = () => {
           {/* <Switch> */}
             <div className="content">
               <Route path="/signin" exact={true} component={SignInView} />
+              <Route path="/register" exact={true} component={RegisterView} />
               <Route path="/" exact={true} component={HomeView} />
               <SideBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />{" "}
               <Route path="/products" exact={true} component={Products} />

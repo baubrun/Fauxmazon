@@ -44,5 +44,28 @@ router.post("/signin", async (req, res) => {
 
 })
 
+router.post("/register", async (req, res) => {
+    const user = new User({
+        email: req.body.email,
+        name: req.body.name,
+        password: req.body.password,
+    })
+    const newUser = await user.save()
+    if (newUser) {
+        res.send({
+            email: newUser.email,
+            _id: newUser.id,
+            isAdmin: newUser.isAdmin,
+            name: newUser.name,
+            token: getToken(newUser)
+        })
+    } else {
+        res.status(401).send({
+            message: "Invalid credentials."
+        })
+    }
+
+})
+
 
 module.exports = router
