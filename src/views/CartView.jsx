@@ -62,7 +62,7 @@ const CartView = (props) => {
                           )
                         }
                       >
-                        {[...Array(item.countInStock).keys()].map((x) => (
+                        {[...Array(item.inStock).keys()].map((x) => (
                           <option key={x + 1} value={x + 1}>
                             {x + 1}
                           </option>
@@ -85,8 +85,8 @@ const CartView = (props) => {
         </div>
         <div className="cart-action">
           <h3>
-            Subtotal ({cartItems.reduce((acc, val) => acc + val.qty, 0)} items)
-            : $ {cartItems.reduce((acc, val) => acc + val.price * val.qty, 0)}
+            Subtotal ({cartItems.reduce((acc, val) => acc + parseInt(val.qty), 0)} items)
+            : $ {cartItems.reduce((acc, val) => acc + val.price * parseInt(val.qty), 0)}
           </h3>
           <button
             className="button"
