@@ -7,6 +7,7 @@ const RegisterView = (props) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [password, setPassword] = useState("");
   const userRegister = useSelector((state) => state.userRegister);
   const {error, loading, userInfo} = userRegister;
@@ -69,7 +70,7 @@ const RegisterView = (props) => {
                 type="confirmPassword"
                 id="confirmPassword"
                 name="confirmPassword"
-                onChange={(evt) => setPassword(evt.target.value)}
+                onChange={(evt) => setConfirmPassword(evt.target.value)}
               ></input>
             </li>
             <li>
